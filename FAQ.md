@@ -1,13 +1,5 @@
 # Bungee Funded Perps — FAQ
 
-### Links to add
-
-Placeholders left in the text, to swap for real URLs:
-
-- In-app chat, Discord and the support email, in "How do I contact support?"
-
----
-
 ## 1. Getting Started
 
 _New to Bungee Funded Perps? Start here._
@@ -399,7 +391,7 @@ You can also edit the price of a resting limit order. A stop-loss or take-profit
 
 Possibly. New markets go through a review before they're enabled, covering liquidity, order-book depth, volatility and how the exposure can be managed, so there's no fixed schedule for additions. Markets that pass are added, and the assets page and your dashboard always show what's currently tradable.
 
-If there's a market you'd like to see, tell us in Discord. Requests feed into what we review next.
+If there's a market you'd like to see, [request it here](https://forms.gle/dsM7139XwUk5SNg19). Requests feed into what we review next.
 
 ### Can I trade on mobile?
 
@@ -477,11 +469,10 @@ _Your agreement with Bungee, disputes and platform issues._
 
 ### How do I contact support?
 
-Three ways:
+Two ways:
 
-- **In-app chat** in the Bungee terminal
-- **Discord**, for general questions and help from the community
-- **Email**, for account-specific or payout issues
+- **In-app chat:** open the [Bungee terminal](https://app.bungee.exchange/funded-perps) and click the support icon at the top right.
+- **[Discord](https://discord.com/invite/fVFRJwu6bv)**, for general questions and help from the community.
 
 ### What if I think there's a mistake on my account?
 
