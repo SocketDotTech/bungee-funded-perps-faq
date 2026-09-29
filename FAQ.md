@@ -64,7 +64,7 @@ _Buying an evaluation, the three tracks, and what happens when you pass._
 
 ### What evaluations can I buy?
 
-One-step evaluations in three tracks: **Classic**, **Pro** and **Turbo**. Each track comes in a range of account sizes, and each has its own profit target, daily loss limit and maximum drawdown.
+One-step evaluations in three tracks: **Classic**, **Pro** and **Turbo**. Each track comes in a range of account sizes. Profit targets and maximum drawdown differ by track; daily loss is 3% for all three.
 
 Current account sizes, prices and rules are on the [evaluation page](https://app.bungee.exchange/funded-perps#pricing), which is always the source of truth.
 
@@ -74,7 +74,7 @@ Each track sets a different balance between how much profit you need to make and
 
 ### Does unrealized profit count toward the profit target?
 
-No. Only **realized** profit counts, so a trade has to be closed before it moves you toward the target. Unrealized profit on an open position still counts toward your daily loss and drawdown, but it won't pass you.
+No. Only **realized** profit counts, so a trade has to be closed before it moves you toward the target. Unrealized P&L on an open position affects live risk equity for daily loss and drawdown breach checks. It doesn't change the settled balance used to set the daily floor.
 
 ### Can I request a payout during an evaluation?
 
@@ -107,33 +107,68 @@ Reaching a daily loss or maximum drawdown limit is a **hard breach.** Prohibited
 
 ### What's the difference between balance and equity?
 
-**Balance** is the settled cash in your account: your starting balance plus the profit and loss of trades you've closed. It only moves when a position closes.
+**Balance** is your settled account balance after realized trading profits and losses, trading fees, settled funding and other posted charges. Open-position P&L isn't included. Balance can change when fees or funding settle, even if you haven't closed a trade.
 
-**Equity** is your balance plus the profit or loss of any position still open, minus fees and funding charged so far. It moves with the market, tick by tick.
+**Risk equity** is balance plus the full unrealized P&L on open positions and the signed effect of pending funding. Pending funding charges reduce equity; once settled into balance, they aren't counted again.
 
-Both your daily loss limit and your maximum drawdown are measured on **equity**, not balance. A position that's deep in the red counts against your limits while it's still open, so you can breach an account without closing a single trade.
+Your **daily loss floor is calculated from settled balance at 00:00 UTC**. Your **maximum drawdown floor is calculated from the original starting balance**. Both breach checks use live risk equity, so an open loss can breach your account before you close the trade.
 
 ### What is the daily loss limit, and how is it calculated?
 
-The daily loss limit caps how much you can lose in a single day. If you reach it, the account is breached. It resets each day, so a bad day ends at the reset rather than following you through the evaluation. Your track sets the percentage, and your dashboard shows how much room you have left today.
+The daily loss allowance is **3% of your settled balance at the 00:00 UTC reset**, for Classic, Pro and Turbo accounts.
 
-Daily loss is measured on **account equity**, so it can include:
+- **Daily loss allowance = settled balance at reset × 3%.**
+- **Daily breach floor = settled balance at reset × 97%.**
 
-- realized P&L
-- unrealized P&L from open positions
-- trading fees
-- funding charges
-- other account charges
+Your account breaches when **live risk equity reaches or falls below that floor**, including immediately at reset. Equity includes open-position P&L and pending funding, so you don't have to close a trade for a loss to count.
 
-A losing open position counts toward your daily loss even before you close it.
+For example, a $10,000 settled balance at reset gives a $300 allowance and a $9,700 daily breach floor. Equity of exactly $9,700 breaches.
 
-The day runs on UTC: your limit resets at **00:00 UTC**, and that's when your starting equity for the new day is set. Your dashboard shows the percentage for your track and how much room you have left.
+Unrealized profits and losses don't change the balance used to calculate the floor. Your dashboard shows the active daily limit and time until the next reset. The separate maximum drawdown limit continues to apply.
+
+### Does unrealized profit at midnight increase my next day's daily loss limit?
+
+No. The reset uses **settled balance**, excluding open-position profits and losses.
+
+If your balance is $100,000 and you have $1,500 of unrealized profit at 00:00 UTC, with no pending funding:
+
+- Your equity is $101,500.
+- Your daily loss allowance is **$3,000**, based on $100,000.
+- Your daily breach floor is **$97,000**.
+
+The open profit puts equity further above the floor, but doesn't raise the reference balance or the allowance.
+
+### Can an open loss cause a breach at the daily reset?
+
+Yes. Live equity is checked against the new floor as soon as the reset is processed. Midnight doesn't erase open losses or forgive a breach.
+
+For example, with a $10,000 settled balance, a $400 unrealized loss and no pending funding, equity is $9,600. The new daily floor is $9,700, so the account breaches. You don't get another $300 to lose from the $9,600 equity level.
+
+### Is daily loss always calculated from my original account size?
+
+No. It uses **settled balance at that day's UTC reset**, which includes profits or losses already realized and fees and funding already settled.
+
+For a $10,000 Classic account whose settled balance at reset is $9,800, the daily allowance is **$294** and the daily floor is **$9,506**. The separate static maximum drawdown floor remains **$9,400**, based on the original $10,000 size. Equity must stay above both floors.
+
+### Does my daily loss floor change when I close a trade during the day?
+
+Closing a trade changes settled balance, but doesn't recalculate the saved daily floor. Ordinary intraday profits, losses, fees and funding don't make that floor trail your balance or equity.
+
+At the next 00:00 UTC reset, a new floor is calculated from the settled balance then. Previously recorded daily floors aren't rewritten. An approved funded payout has its own account reset, described under "What happens to my account after a payout?"
+
+### Is the daily loss allowance the same as how much more I can lose?
+
+Not necessarily. The allowance sets the floor from the balance saved at reset. Your remaining room depends on **current equity's distance above that floor**, and the maximum drawdown floor also applies.
+
+For illustration, a $5,000 settled balance gives a $150 daily allowance and a $4,850 daily floor. With $1,000 of open profit and no pending funding, equity is $6,000: $1,150 above the daily floor. With $1,000 of open loss, equity is $4,000 and the account has already breached. The allowance is $150 in both cases; it isn't a fresh $150 you may lose from current equity.
 
 ### What is the maximum drawdown, and how is it calculated?
 
-The maximum drawdown caps how much you can lose in total over the life of the account, rather than in a single day. If you reach it, the account is breached.
+Maximum drawdown limits how far your equity can fall below your account's **original starting balance**. It is static and doesn't trail upward with profits.
 
-It's **static**: measured from your account's starting balance, and it doesn't trail upward as you make profits. So if you're in profit, your gains sit on top of that fixed floor and your total room to lose grows. Like the daily limit, it's based on equity, so fees, funding and unrealized P&L all count toward it.
+The drawdown percentages are **6% for Classic, 5% for Pro and 3% for Turbo**. The floor is original starting balance × (1 − your track's drawdown percentage). A $10,000 Classic account therefore has a $9,400 maximum drawdown floor.
+
+Live risk equity is compared against that floor; reaching or falling below it breaches. Open-position P&L, fees and funding all affect the check. The daily loss floor uses settled balance at the UTC reset, so it can differ from the maximum drawdown floor. You must stay above both.
 
 After each approved funded payout, the account resets to its original balance and default risk limits. Unpaid eligible profits stay separately claimable and don't increase your trading equity or drawdown allowance.
 
@@ -147,9 +182,11 @@ There's no automatic forgiveness, reset, grace period or soft breach. The dashbo
 
 ### What if I breach while my account is in profit?
 
-The breach still stands. Limits are measured on equity in the moment, so a sharp move against an open position can take you past your daily loss limit or maximum drawdown even if you were up beforehand, or are up again shortly after. There's no look-back and no netting against earlier profit.
+A positive overall profit doesn't prevent a daily loss breach. The daily floor uses your settled balance at the UTC reset, which may already include profits realized on earlier days.
 
-That's also why unrealized profit doesn't pass an evaluation: profit counts when you close the trade, while risk counts continuously. Full details of how breaches are handled are in the [Bungee Funded Perps rulebook](https://github.com/SocketDotTech/rulebook/blob/main/RULEBOOK.md).
+For example, a $10,000 Classic account with an $11,000 settled balance at reset has a daily floor of **$10,670**. If live equity falls to $10,670, it breaches daily loss even though equity is still above the original $10,000 account size.
+
+A later recovery doesn't undo a breach. Both daily loss and maximum drawdown are enforced using live risk equity, including open losses, fees and funding. Full details are in the [Bungee Funded Perps rulebook](https://github.com/SocketDotTech/rulebook/blob/main/RULEBOOK.md).
 
 ### Is there a leverage or position-size limit?
 
@@ -187,7 +224,7 @@ Payouts may be held during an investigation. If prohibited bot activity, HFT or 
 
 No. A stop-loss isn't required, and you won't be breached for trading without one. How you manage risk is up to you.
 
-That said, both limits are measured on equity, which means an open position moving against you counts toward your daily loss and drawdown before you close it. A position left unattended can breach the account on its own, so a stop-loss is a practical way to keep that from happening.
+Both breach checks use live equity, so a position moving against you counts toward daily loss and drawdown before you close it. The daily floor is set from settled balance at reset; it doesn't move down with an open loss. A stop-loss can help manage risk, but execution prices aren't guaranteed and it doesn't guarantee that a breach will be avoided.
 
 You can attach a **stop-loss and a take-profit** to any position in the terminal. They resize with the position, so if you close part of it the remaining protection adjusts to what's left. Once one triggers it can't be cancelled or edited.
 
@@ -240,7 +277,7 @@ Yes. There are no news-trading restrictions: you can hold positions through high
 
 Yes. There's no requirement to close positions at the end of the day or before the weekend, and crypto perpetual markets trade 24/7.
 
-Two things to keep in mind while a position stays open: funding is charged every hour, and unrealized losses count toward your daily loss limit and drawdown around the clock, including while you're away from the screen.
+Funding is charged every hour, and unrealized losses affect equity and breach checks around the clock. At 00:00 UTC, the daily floor is recalculated from settled balance, excluding open P&L. Your live equity is checked immediately against the new floor, so holding through midnight can result in a breach at reset. The static maximum drawdown floor continues to apply.
 
 ---
 
@@ -262,7 +299,11 @@ You keep **80%** of the profits you make on your funded account; Bungee keeps 20
 
 ### Are the rules the same on a funded account?
 
-Yes. A funded account has the same daily loss limit, the same maximum drawdown and the same prohibited practices as the evaluation you passed. The limits are measured the same way, on account equity, so open positions, fees and funding all count. Breaching a limit closes the funded account.
+Yes. A funded account has the same 3% daily loss rule, track-specific maximum drawdown and prohibited practices as the evaluation you passed.
+
+The daily loss floor is calculated from settled balance at the UTC reset; the maximum drawdown floor uses the original starting balance. Both are enforced against live risk equity, including open-position P&L and pending funding. Reaching or falling below either floor is a hard breach.
+
+Approved payouts reset the funded account to its original balance and default risk limits, with unpaid eligible profits recorded separately as explained below.
 
 ### Is there a profit target on a funded account?
 
@@ -284,7 +325,7 @@ To be eligible, you need to:
 - have no unresolved hard breach
 - have no unresolved abuse or risk investigation
 - have no confirmed prohibited bot activity, HFT or scalping for the payout period
-- have completed any applicable cooldown, with sufficient allowance for the requested gross amount
+- have sufficient remaining allowance under the account's rolling 24-hour cap for the requested gross amount
 - meet any operational requirements shown in your dashboard
 
 ### How much can I take out at once?
@@ -343,7 +384,7 @@ _Markets, leverage, fees, funding and how orders fill._
 
 Perpetual futures on an approved list of markets, spanning crypto, stocks, indices and commodities. Every market is reviewed and enabled by Bungee before it can be traded, and we add more over time as they pass that review.
 
-All markets are **isolated-margin** perpetuals: margin is assigned to each position on its own and isn't shared with your other positions. Cross margin isn't supported. Account-level limits still apply across everything you have open, so P&L, fees and funding from every position count toward your daily loss and drawdown.
+All markets are **isolated-margin** perpetuals: margin is assigned to each position on its own and isn't shared with your other positions. Cross margin isn't supported. Account-level breach checks still use risk equity across everything you have open, including P&L, fees and funding. The daily floor uses settled balance at reset, while the static maximum drawdown floor uses original starting balance.
 
 The current list is on the [assets page](https://app.bungee.exchange/funded-perps/assets), and your dashboard always shows what's tradable on your account right now.
 
@@ -361,7 +402,7 @@ Leverage is fixed for each market and set by Bungee, so you can't pick your own.
 
 Example: opening and closing a $10,000 position costs about **$3.00** in total.
 
-Fees count toward your equity, daily loss, drawdown and payouts.
+Posted fees reduce both settled balance and risk equity. Fees posted before 00:00 UTC are included in the balance used for the new daily floor. Fees posted after reset affect the live equity breach check without recalculating that day's floor. They also affect drawdown and payouts.
 
 ### Is there funding?
 
@@ -372,7 +413,7 @@ Two things to know about how it works here:
 - **The minimum rate is 0%**, so some hours cost you nothing.
 - **Funding is never paid to you.** The rate can't go negative and won't create a credit, which is different from a live exchange where funding flips between longs and shorts.
 
-Funding counts toward your P&L, daily loss, drawdown and payout eligibility.
+Settled funding is included in the balance used at the UTC reset. Pending funding charges reduce risk equity for breach checks but aren't included in that settled balance until they settle. Settlement doesn't count the charge twice or recalculate the saved daily floor. Funding also affects P&L, drawdown and payout eligibility.
 
 ### Will my order fill at the price I see?
 
