@@ -190,13 +190,11 @@ A later recovery doesn't undo a breach. Both daily loss and maximum drawdown are
 
 ### Is there a leverage or position-size limit?
 
-Yes, and there are two of them.
+Yes. **Leverage is fixed by Bungee**, and every market has a maximum total open position notional. You can't choose your own leverage.
 
-**Leverage is fixed.** Every market trades at a fixed leverage set by Bungee, and you can't choose your own. The fixed value isn't the same on every market, and Bungee may change a market's leverage going forward based on liquidity, volatility and risk. Changes apply to new orders; positions you already have open keep the leverage they were opened with.
+Your dashboard and the [assets page](https://app.bungee.exchange/funded-perps/assets) show the current leverage and position limits for each market.
 
-**Each market has a maximum position size.** More liquid markets may allow larger positions than thin or volatile ones, and Bungee may reduce a market's limit, make it reduce-only or disable it when conditions require.
-
-Your dashboard shows the current leverage and maximum position size for every market.
+Position limits refer to notional exposure, not margin or account balance. Available margin and account risk limits may restrict how much you can trade below the market's cap. An increase in the cap doesn't allow you to add to a position designated reduce-only.
 
 ### How many positions can I have open at once?
 
@@ -394,7 +392,23 @@ Every market has to be explicitly approved and enabled by Bungee first. We look 
 
 ### How does leverage work?
 
-Leverage is fixed for each market and set by Bungee, so you can't pick your own. Whatever a market's fixed leverage is, every trade on that market uses it. The value isn't the same on every market, and Bungee may change it going forward based on liquidity, volatility and risk. Your dashboard shows the current leverage for each market.
+Leverage is fixed for each market and set by Bungee. You can't adjust it yourself. Your dashboard and the [assets page](https://app.bungee.exchange/funded-perps/assets) show the current leverage and position limits.
+
+Bungee may change leverage prospectively based on liquidity, volatility and risk. New positions use the updated leverage; existing positions are handled as explained below.
+
+### What happens to my open positions when leverage changes?
+
+Existing open positions in the affected market keep their original leverage and become **reduce-only** until fully closed. You can reduce or close them, but you can't add to them.
+
+The leverage change itself doesn't force-close your positions. Normal liquidation and account breach rules still apply.
+
+Fully close an existing reduce-only position before opening a new position in that market. The new position uses the updated leverage shown in your dashboard.
+
+### What does reduce-only mean?
+
+A reduce-only position can be made smaller or closed completely, but it can't be increased. A trade against it may reduce or close the existing exposure; it cannot reverse that position into a new one as part of the reduction.
+
+A higher leverage setting or position-size cap doesn't override the restriction. Fully close the existing reduce-only position before opening a new position in that market. New positions remain subject to available margin and account risk limits.
 
 ### What are the trading fees?
 
