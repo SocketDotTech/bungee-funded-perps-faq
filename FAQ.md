@@ -22,7 +22,7 @@ One thing to be clear about: in this model you're being evaluated on the trading
 
 1. **Choose an evaluation:** sign in with Google or your wallet, pick a track (Classic, Pro or Turbo) and an account size, and pay in USDC on Base.
 2. **Pass the evaluation:** hit the profit target without reaching the daily loss limit or maximum drawdown.
-3. **Verify your identity:** complete KYC after you pass, before your first funded payout.
+3. **Verify your identity:** complete KYC after you pass, before trading your funded account or receiving payouts.
 4. **Trade your funded account.**
 5. **Get paid:** request payouts in USDC. You keep 80% of your profits.
 
@@ -34,7 +34,7 @@ To pass, you hit the profit target without reaching the daily loss limit or the 
 
 ### What is a funded account?
 
-A funded account is what you trade after you pass an evaluation. It opens at the same account size as the evaluation you passed, and you keep **80%** of the profits you make on it, paid out in USDC. You'll need to complete KYC before your first payout.
+A funded account is what you trade after you pass an evaluation. It opens at the same account size as the evaluation you passed, and you keep **80%** of the profits you make on it, paid out in USDC. You'll need KYC approval before trading the funded account or receiving payouts.
 
 Funded accounts run on the same risk limits as evaluations: the same daily loss limit, the same maximum drawdown and the same prohibited practices. Breaching them closes the account. There's no profit target on a funded account, so you can keep trading it for as long as you stay inside the limits.
 
@@ -46,9 +46,50 @@ If you breach an account's risk limits, the account closes. That's the extent of
 
 ### Can anyone be funded?
 
-Almost anyone can. You need to be of legal age in the country you live in, and you can't be in a country we're unable to serve or on a sanctions list. Bungee Funded Perps isn't available everywhere, and the current restrictions are set out in our Terms.
+Almost anyone can. You need to be of legal age in the country you live in, and you can't be in a country we're unable to serve or on a sanctions list. Bungee Funded Perps isn't available everywhere, and the current restrictions are set out in our Terms and listed under "Which countries and regions are restricted?" below.
 
-You don't need trading qualifications, a brokerage account or your own capital. You do need to pass KYC and compliance checks before your first funded payout.
+You don't need trading qualifications, a brokerage account or your own capital. You do need to pass KYC and compliance checks before trading a funded account or receiving payouts.
+
+### Which countries and regions are restricted?
+
+Bungee Funded Perps is not available in the following restricted countries and regions:
+
+- Afghanistan
+- Balkans
+- Belarus
+- Bosnia and Herzegovina
+- Burma (Myanmar)
+- Burundi
+- Central African Republic
+- the occupied regions of Ukraine
+- Cuba
+- Democratic Republic of the Congo
+- Egypt
+- Eritrea
+- Guinea (Rep. of Guinea-Conakry)
+- Guinea-Bissau
+- Iran
+- Iraq
+- Lebanon
+- Liberia
+- Libya
+- Mali
+- Moldova
+- North Korea
+- People’s Republic of China (PRC)
+- Russia
+- Serbia
+- Somalia
+- South Sudan
+- Sudan
+- Syria
+- Tunisia
+- Ukraine
+- Venezuela
+- Yemen
+- Zimbabwe
+
+This list is subject to the Restricted Jurisdictions definition in our Terms, which may include additional jurisdictions designated from time to time.
 
 ### Is this a live trading account?
 
@@ -74,7 +115,11 @@ Each track sets a different balance between how much profit you need to make and
 
 ### Does unrealized profit count toward the profit target?
 
-No. Only **realized** profit counts, so a trade has to be closed before it moves you toward the target. Unrealized P&L on an open position affects live risk equity for daily loss and drawdown breach checks. It doesn't change the settled balance used to set the daily floor.
+Yes. **Realized and eligible unrealized profit** count toward the target; you don't have to close a trade for its eligible profit to count. Unrealized P&L on an open position affects live risk equity for daily loss and drawdown breach checks. It doesn't change the settled balance used to set the daily floor.
+
+### Do I need a take-profit order to pass the evaluation?
+
+No. When your balance plus eligible unrealized P&L reaches the target without breaching the risk limits, the system records your pass and closes your positions automatically. Later price movements or closing fees don't undo a pass already recorded.
 
 ### Can I request a payout during an evaluation?
 
@@ -82,9 +127,9 @@ No. Profit made during an evaluation isn't withdrawable; it's there to show you 
 
 ### What happens after I pass?
 
-You're promoted automatically. Once your realized profit reaches the target and you're flat, with no open positions and no pending orders, your evaluation closes and a funded account of the same size opens for you.
+You're promoted automatically. Once your balance plus eligible unrealized P&L reaches the target without breaching the risk limits, your pass is recorded. The system cancels pending orders and closes your positions automatically. After closure and account checks, a funded account of the same size opens for you.
 
-The funded account starts fresh: positions, profit and orders from the evaluation don't carry over. After completing KYC, you can start requesting payouts on the profits you make there.
+The funded account starts fresh: positions, profit and orders from the evaluation don't carry over. After completing KYC, you can start trading and requesting payouts on the profits you make there.
 
 Your evaluation fee isn't returned to you with your payouts.
 
@@ -154,7 +199,7 @@ For a $10,000 Classic account whose settled balance at reset is $9,800, the dail
 
 Closing a trade changes settled balance, but doesn't recalculate the saved daily floor. Ordinary intraday profits, losses, fees and funding don't make that floor trail your balance or equity.
 
-At the next 00:00 UTC reset, a new floor is calculated from the settled balance then. Previously recorded daily floors aren't rewritten. An approved funded payout has its own account reset, described under "What happens to my account after a payout?"
+At the next 00:00 UTC reset, a new floor is calculated from the settled balance then. Previously recorded daily floors aren't rewritten. Claiming funded-account profit has its own account reset, described under "What happens to my account after a payout?"
 
 ### Is the daily loss allowance the same as how much more I can lose?
 
@@ -170,7 +215,7 @@ The drawdown percentages are **6% for Classic, 5% for Pro and 3% for Turbo**. Th
 
 Live risk equity is compared against that floor; reaching or falling below it breaches. Open-position P&L, fees and funding all affect the check. The daily loss floor uses settled balance at the UTC reset, so it can differ from the maximum drawdown floor. You must stay above both.
 
-After each approved funded payout, the account resets to its original balance and default risk limits. Unpaid eligible profits stay separately claimable and don't increase your trading equity or drawdown allowance.
+When eligible funded-account profit is claimed, the account resets to its original balance and default risk limits. The trader's share enters a separate user-wide withdrawable balance and doesn't increase trading equity or drawdown allowance.
 
 ### What happens if I breach a rule?
 
@@ -235,7 +280,7 @@ _What you can and can’t do while trading._
 ### Which trading practices are prohibited?
 
 - **Bot activity, HFT and scalping:** automated trading decisions or order activity, systematic high-speed orders, or repeated rapid entries and exits to capture small price moves or execution advantages.
-- **Copy trading and coordinated trading:** automatically mirroring another trader's account, controlling several accounts centrally, synchronising trades to get around risk limits, or using services built to game prop-firm evaluations.
+- **Copy trading and coordinated trading:** automatically mirroring another trader's account, controlling several accounts centrally, synchronising trades to get around risk limits, or using services built to game prop-firm evaluations, unless expressly approved by Bungee.
 - **Cross-account hedging:** e.g. long BTC in one account and short in another, using correlated assets to create offsetting exposure, or coordinating opposite positions with another trader.
 - **Technical exploits:**
   - latency or stale-price exploitation
@@ -269,7 +314,7 @@ No, in either case:
 
 ### Can I trade during news events?
 
-Yes. There are no news-trading restrictions: you can hold positions through high-impact releases and open or close trades around them.
+Yes. There is no general news-trading ban: you can hold positions through high-impact releases and open or close trades around them. Temporary market restrictions may apply during extreme volatility.
 
 ### Can I hold positions overnight or over the weekend?
 
@@ -285,11 +330,11 @@ _How and when you get paid._
 
 ### Can I withdraw the profits I make?
 
-Yes. Profit you realize on a funded account is yours to withdraw, minus Bungee's share of the split. There's no target to hit first: once you have realized profit, you can request your first payout.
+Yes. Eligible settled profit on a funded account can be claimed into your **user-wide withdrawable balance**, after the applicable profit split. Unrealized profit isn't withdrawable.
 
-Only **realized** profit counts. Profit sitting in an open position isn't withdrawable until you close the trade. Payouts remain subject to eligibility and trading-rule reviews.
+Claiming new account profit requires an active, reconciled funded account with current risk checks and no breach, open positions, pending orders, holds or active protection. The claim takes all eligible settled profit above the original account balance and resets the account to that original balance.
 
-Each funded account is capped at **$20,000 gross in any rolling 24-hour period**, before the profit split. Additional payouts are allowed while allowance remains, and unpaid eligible profit stays claimable for a later request.
+You can then request an external payout from your withdrawable balance, subject to KYC, compliance review and your remaining gross payout allowance. Claims from multiple funded accounts share the same user-wide balance and allowance. See the payout questions below for timing and limits.
 
 ### What's the profit split?
 
@@ -301,7 +346,7 @@ Yes. A funded account has the same 3% daily loss rule, track-specific maximum dr
 
 The daily loss floor is calculated from settled balance at the UTC reset; the maximum drawdown floor uses the original starting balance. Both are enforced against live risk equity, including open-position P&L and pending funding. Reaching or falling below either floor is a hard breach.
 
-Approved payouts reset the funded account to its original balance and default risk limits, with unpaid eligible profits recorded separately as explained below.
+Claiming eligible settled profit resets the funded account to its original balance and default risk limits. The trader's share is credited to a separate user-wide withdrawable balance, as explained below.
 
 ### Is there a profit target on a funded account?
 
@@ -309,32 +354,30 @@ No. The profit target only applies to the evaluation. Once you're funded there's
 
 ### How and when can I request a payout?
 
-Whenever you have realized profit on a funded account. There's no fixed payout cycle and no minimum number of trading days to wait through.
+You can request a payout when you have an eligible withdrawable balance, KYC approval and available payout allowance. There is no minimum number of trading days.
 
-The **24-hour cooldown** applies to each processed payout amount. You can request additional payouts while sufficient allowance remains under the account's $20,000 gross cap. Each amount stops counting toward the cap 24 hours after it is processed and the account is reset. The limit applies to each funded account separately.
+There are two separate steps:
 
-Only one request can be pending at a time. Pending, rejected or cancelled requests don't consume allowance or start a cooldown. If a processed payout is reversed, its gross amount no longer counts toward the cap.
+- **Claim account profit:** the account must be active, reconciled and current on risk, with no breach, open positions, pending orders, holds or active protection. All eligible settled profit above the original balance is claimed, the profit split is applied, and the account resets.
+- **Request payment:** eligible amounts in your user-wide withdrawable balance can be requested within your remaining payout allowance. A request can use an existing balance without claiming new profit from an account.
 
-To be eligible, you need to:
+The default allowance is **$20,000 of gross profit per user per cycle**, before the split. Accepted requests consume allowance when created. Partial requests leave the rest available immediately. A **24-hour cooldown starts only when the full allowance is consumed**; the next request after the cooldown starts a new cycle.
 
-- be on an eligible funded account
-- have realized, withdrawable profit
-- complete KYC and compliance checks
-- have no unresolved hard breach
-- have no unresolved abuse or risk investigation
-- have no confirmed prohibited bot activity, HFT or scalping for the payout period
-- have sufficient remaining allowance under the account's rolling 24-hour cap for the requested gross amount
-- meet any operational requirements shown in your dashboard
+You may continue claiming eligible account profits during the cooldown; they accumulate in your withdrawable balance. Multiple payout requests may be pending, but every accepted request consumes balance and allowance. A subsequent rejection is final and restores neither.
+
+Payouts remain subject to compliance and trading-rule review. Check your dashboard for your available balance, remaining allowance and any wait time.
 
 ### How much can I take out at once?
 
-Up to **$20,000 gross per request per 24 hours**, whatever your account size or track, provided enough allowance remains. Total gross payouts from each account can't exceed $20,000 in any rolling 24-hour period, even across multiple requests. The cap applies before the profit split, so a full $20,000 request pays you $16,000 at 80%.
+Your payment is limited by your eligible withdrawable balance and the trader share of your remaining gross payout allowance. The default allowance is **$20,000 gross per user per cycle**, shared across funded accounts, before the profit split. At the standard 80% split, $20,000 gross corresponds to $16,000 for you.
 
-If you withdraw the full $20,000 at once, you wait 24 hours before another payout. If you split it across payouts, allowance becomes available as each amount passes its 24-hour mark. Profit above the cap isn't lost: it stays claimable for later payouts, subject to eligibility.
+For example, an accepted $5,000 gross request leaves $15,000 of gross allowance available immediately. The 24-hour cooldown starts when cumulative accepted requests reach the full allowance. It doesn't start separately for every partial payout.
+
+Profit above the allowance stays in your withdrawable balance for a later cycle. Your dashboard shows the current allowance and when you can request more.
 
 ### What's the minimum payout?
 
-**$50** after the profit split.
+There is no fixed minimum payout.
 
 ### How long does a payout take?
 
@@ -347,13 +390,15 @@ Bungee aims to process valid payout requests within **1 business day.** That's a
 
 ### What happens to my account after a payout?
 
-After every approved payout, including your first, your funded account **resets** to its default state. It goes back to its original starting balance, with the default daily loss limit and maximum drawdown for its size and track. The account stays funded: you don't need a new evaluation.
+Your trading account resets when you **claim its eligible settled profit**, rather than every time an external payment is approved or sent. A claim takes all eligible settled profit above the original balance, applies the profit split, credits your user-wide withdrawable balance and restores the account's original balance and risk baseline.
 
-Any eligible profit you didn't withdraw isn't lost. It's recorded separately and stays claimable in later payouts, subject to the same cap, split, cooldown and eligibility rules. While it's held there, it doesn't count toward your trading balance, your equity or your risk limits, so it doesn't give you extra room to lose.
+For example, a $10,000 Classic funded account with a $35,000 settled balance has $25,000 of gross eligible profit. Claiming it credits $20,000 to your withdrawable balance at the 80% split and resets the trading balance to $10,000.
 
-For example, a $10,000 Classic account grows to a realized $35,000, which includes $25,000 of eligible profit. You request the maximum $20,000 payout and receive $16,000 at the 80% split. The remaining $5,000 of profit stays claimable, and the account resets to a $10,000 balance with its drawdown floor back at $9,400, giving you $600 of room. You can request the remaining $5,000 once the 24-hour cooldown has passed.
+The maximum drawdown floor is $9,400, giving a $600 maximum-drawdown buffer. The default 3% daily-loss limit also applies: its $9,700 floor leaves $300 before a daily-loss breach at $10,000 equity.
 
-A pending, rejected, cancelled or reversed payout doesn't trigger a reset, and a reset doesn't clear an unresolved breach or investigation.
+With a fresh $20,000 gross payout allowance, you can request $16,000 of the credited trader share. The remaining $4,000 trader share, representing $5,000 gross profit, stays withdrawable for a later cycle. Consuming the full allowance starts the 24-hour cooldown.
+
+The account stays funded, and you don't need a new evaluation. A claim doesn't clear an unresolved breach or investigation. A rejected external payout doesn't restore the requested balance or consumed allowance.
 
 ### Can a payout be reviewed or denied?
 
@@ -367,6 +412,8 @@ Yes. Bungee may manually review payouts and trading, especially when profits com
 - bot activity, HFT or scalping
 
 Payouts may be held during an investigation. Confirmed prohibited bot activity, HFT or scalping means the applicable payout request is denied. Other ineligible payouts may also be denied, and payouts credited in error may be reversed.
+
+An accepted external payout request consumes withdrawable balance and allowance. If that request is subsequently rejected, neither is restored.
 
 ### Do I have to pay tax on my payouts?
 
@@ -434,8 +481,8 @@ Settled funding is included in the balance used at the UTC reset. Pending fundin
 Not always, and that's deliberate. Your orders fill against the **real order book**, at the prices and depth actually available in the market, so execution behaves the way it would with real money on the line:
 
 - **Spread and slippage apply.** A large order works through the book and fills at several price levels, not one quoted price.
-- **Partial fills happen.** If a crossing order runs out of available depth, you keep what filled and the rest is cancelled. A limit order keeps its unfilled remainder open at your price.
-- **Fees and funding are charged** on what actually fills.
+- **Partial fills happen.** If a crossing order runs out of available depth, you keep what filled and the rest is cancelled. A limit order stopped by its price limit may keep a resting remainder, but exhausting available opposite-side depth during initial execution can cancel the remainder.
+- **Trading fees are charged** on what actually fills. Funding is charged separately, hourly on open positions.
 - **Orders can be rejected or resized** if they exceed available liquidity, a market's position limit, your account's risk limits or venue constraints.
 
 What isn't taken from the market is other traders' order flow: **each account gets its own copy of the book's depth**, so your fills never compete with another Bungee trader's, and nobody can eat the liquidity you were aiming at.
@@ -477,11 +524,12 @@ With your Google account or a crypto wallet.
 
 In **USDC on Base.** At checkout you'll see a deposit address with a QR code, the exact amount to send and a payment deadline. Your account opens as soon as the payment is confirmed.
 
-| If you…                      | Then…                                                   |
-| ---------------------------- | ------------------------------------------------------- |
-| Send the full amount or more | Your account opens                                      |
-| Send less than the amount    | No account opens, and the payment goes to manual review |
-| Miss the deadline            | No account opens; start a new purchase                  |
+| If you…                                                     | Then…                                                   |
+| ----------------------------------------------------------- | ------------------------------------------------------- |
+| Send the full amount or more                                | Your account opens                                      |
+| Send a positive amount up to $1 short of the checkout total | Your account opens                                      |
+| Send more than $1 short                                     | No account opens, and the payment goes to manual review |
+| Miss the deadline                                           | No account opens; start a new purchase                  |
 
 ### Is the fee one-time, or is it a subscription?
 
@@ -489,19 +537,19 @@ One-time. You pay once per evaluation, and that's it: there's no subscription, n
 
 ### Can I have more than one account?
 
-Yes. You can hold several active accounts at once, as long as their combined account size stays within **$100,000**. For example:
+Yes. You can hold several active accounts at once, as long as their combined account size stays within **$110,000**. For example:
 
-- one $100,000 account = $100,000
-- two $50,000 accounts = $100,000
-- four $25,000 accounts = $100,000
+- one $100,000 account plus one $10,000 account = $110,000
+- two $50,000 accounts plus one $10,000 account = $110,000
+- four $25,000 accounts plus one $10,000 account = $110,000
 
 The cap counts the size of your active accounts, not margin used or position size, and checkout shows how much of it you've selected. Closed accounts don't count toward it. Each account keeps its own risk limits and is evaluated separately.
 
-You can buy several accounts in a single purchase, provided the total stays within the $100,000 cap.
+You can buy several accounts in a single purchase, provided the total stays within the $110,000 cap.
 
 ### When do I need to complete KYC?
 
-After you pass your evaluation, before your first funded payout. You don't need to verify your identity to buy an evaluation or to trade one.
+After you pass your evaluation, before trading your funded account or receiving payouts. You don't need to verify your identity to buy an evaluation or to trade one.
 
 ### What do I need for KYC?
 
@@ -514,7 +562,7 @@ The check usually takes a few minutes, and you can start it from your dashboard 
 
 ### What happens if my KYC is rejected?
 
-Payouts stay on hold until your identity is verified. Sumsub will tell you what needs correcting, and Bungee support can help if you're stuck.
+Funded trading and payouts stay on hold until your identity is verified. If your KYC is rejected, contact Bungee support; a new verification link isn't automatically provided. If the status is "resubmission required," follow the verification flow to correct the requested information.
 
 ---
 
@@ -549,7 +597,7 @@ Bungee isn't responsible for losses or missed trading opportunities caused solel
 
 ### Can the rules change?
 
-Yes. Bungee may update supported markets, leverage, position limits, fees, funding, evaluation availability, operational requirements and risk controls. Material changes will be communicated through the platform or the terms. Market-risk changes can take effect immediately when needed to protect traders, Bungee, venues or liquidity providers.
+Yes. Bungee may update supported markets, leverage, position limits, fees, funding, evaluation availability, operational requirements and risk controls. Material changes should be communicated through the platform or the applicable terms. Market-risk changes can take effect immediately when needed to protect traders, Bungee, venues or liquidity providers.
 
 ---
 
@@ -559,11 +607,11 @@ _Info about the Bungee referral programme._
 
 ### Is there a referral programme?
 
-Yes. Share your referral code and you earn **1% commission** on eligible purchases made with it, while the person you refer gets **10% off** their first eligible purchase.
+Yes. Eligible user codes can provide a checkout discount and earn commission for the code owner. Discounts, first-purchase commission, repeat-purchase commission and code availability are configurable; check your dashboard and checkout for the applicable terms.
 
-There's also a **Founding Trader discount of 15%** on evaluation purchases.
+Your first successful purchase requires an available user code. On later purchases, you may use an enabled user code, an eligible badge code or no code. You can't use your own code. Only the selected user code earns commission; badge codes and purchases without a code don't.
 
-You get one referral code, and it's yours permanently once created. The discount applies to a referred trader's first eligible purchase only, and you can't refer yourself.
+Founding Trader benefits depend on badge membership and the code used at checkout. The purchase that earns a badge receives the selected user code's discount; eligible badge benefits apply to later purchases. Discounts aren't automatically applied—enter or select the appropriate code and check the final price.
 
 ### How do I get my referral earnings?
 
