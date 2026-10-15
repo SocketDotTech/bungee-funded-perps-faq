@@ -6,13 +6,13 @@ _New to Bungee Funded Perps? Start here._
 
 ### What is Bungee Funded Perps?
 
-Bungee Funded Perps is Bungee's prop trading program for perpetual futures, covering crypto, stocks, indices and commodities. You pay a one-time fee for an evaluation, then trade it in the Bungee terminal. Pass the evaluation without breaking the risk limits and you move to a funded account, where you keep **80%** of the profits you make.
+Bungee Funded Perps is Bungee's prop trading program for perpetual futures, covering crypto, stocks, indices and commodities. You pay a one-time fee for a challenge, then trade it in the Bungee terminal. Pass the challenge without breaking the risk limits and you move to a funded account, where you keep **80%** of the profits you make.
 
 There's no time limit, no minimum number of trading days and no consistency rule.
 
 ### What is prop trading?
 
-In proprietary ("prop") trading, you trade a firm's capital instead of your own and keep a share of the profits. Modern prop firms run it as a two-stage programme: you pay a fee to take an **evaluation** that tests whether you can hit a profit target while staying inside set risk limits, and if you pass you get a **funded account** and a cut of what you make on it. The firm carries the downside; your loss is capped at the fee you paid.
+In proprietary ("prop") trading, you trade a firm's capital instead of your own and keep a share of the profits. Modern prop firms run it as a two-stage programme: you pay a fee to take a **challenge** that tests whether you can hit a profit target while staying inside set risk limits, and if you pass you get a **funded account** and a cut of what you make on it. The firm carries the downside; your loss is capped at the fee you paid.
 
 Crypto-native prop firms run the same model on perpetual futures, with no brokerage account to open. Bungee Funded Perps is Bungee's version of it, built into the Bungee terminal, and its markets cover crypto alongside stocks, indices and commodities.
 
@@ -20,27 +20,27 @@ One thing to be clear about: in this model you're being evaluated on the trading
 
 ### How do I get started?
 
-1. **Choose an evaluation:** sign in with Google or your wallet, pick a track (Classic, Pro or Turbo) and an account size, and pay in USDC on Base.
-2. **Pass the evaluation:** hit the profit target without reaching the daily loss limit or maximum drawdown.
+1. **Choose a challenge:** sign in with Google or your wallet, pick a track (Classic, Pro or Turbo) and an account size, and pay in USDC on Base.
+2. **Pass the challenge:** hit the profit target without reaching the daily loss limit or maximum drawdown.
 3. **Verify your identity:** complete KYC after you pass, before trading your funded account or receiving payouts.
 4. **Trade your funded account.**
 5. **Get paid:** request payouts in USDC. You keep 80% of your profits.
 
-### What is an evaluation?
+### What is a challenge?
 
-An evaluation is the test you buy to prove you can trade to our risk limits. You pick a track (Classic, Pro or Turbo) and an account size, then trade that account in the Bungee terminal.
+A challenge is the test you buy to prove you can trade to our risk limits. You pick a track (Classic, Pro or Turbo) and an account size, then trade that account in the Bungee terminal.
 
-To pass, you hit the profit target without reaching the daily loss limit or the maximum drawdown. There's no time limit, no minimum number of trading days and no consistency rule, so you can take as long as you need. Break a limit and the evaluation ends in a hard breach; to try again, you buy a new one.
+To pass, you hit the profit target without reaching the daily loss limit or the maximum drawdown. There's no time limit, no minimum number of trading days and no consistency rule, so you can take as long as you need. Break a limit and the challenge ends in a hard breach; to try again, you buy a new one.
 
 ### What is a funded account?
 
-A funded account is what you trade after you pass an evaluation. It opens at the same account size as the evaluation you passed, and you keep **80%** of the profits you make on it, paid out in USDC. You'll need KYC approval before trading the funded account or receiving payouts.
+A funded account is what you trade after you pass a challenge. It opens at the same account size as the challenge you passed, and you keep **80%** of the profits you make on it, paid out in USDC. You'll need KYC approval before trading the funded account or receiving payouts.
 
-Funded accounts run on the same risk limits as evaluations: the same daily loss limit, the same maximum drawdown and the same prohibited practices. Breaching them closes the account. There's no profit target on a funded account, so you can keep trading it for as long as you stay inside the limits.
+Funded accounts run on the same risk limits as challenges: the same daily loss limit, the same maximum drawdown and the same prohibited practices. Breaching them closes the account. There's no profit target on a funded account, so you can keep trading it for as long as you stay inside the limits.
 
-### Can I lose more than my evaluation fee?
+### Can I lose more than my challenge fee?
 
-No. The evaluation fee is the only money you put in. You don't deposit trading capital, you're not trading your own funds, and you can't end up owing Bungee anything if an account loses money.
+No. The challenge fee is the only money you put in. You don't deposit trading capital, you're not trading your own funds, and you can't end up owing Bungee anything if an account loses money.
 
 If you breach an account's risk limits, the account closes. That's the extent of it: your downside is the fee you already paid.
 
@@ -93,45 +93,45 @@ This list is subject to the Restricted Jurisdictions definition in our Terms, wh
 
 ### Is this a live trading account?
 
-Evaluation and funded trading both use **simulated accounts**. You're not placing orders on an exchange yourself, and you never deposit trading capital.
+Challenge and funded trading both use **simulated accounts**. You're not placing orders on an exchange yourself, and you never deposit trading capital.
 
 Behind the scenes, Bungee may simulate your trades internally, hedge some or all of the exposure, net exposure across accounts, or execute externally, at its discretion. Either way, you don't own or control Bungee's capital or any hedge positions, and your results are set by Bungee's account ledger and the program rules.
 
 ---
 
-## 2. Evaluation
+## 2. Challenge
 
-_Buying an evaluation, the three tracks, and what happens when you pass._
+_Buying a challenge, the three tracks, and what happens when you pass._
 
-### What evaluations can I buy?
+### What challenges can I buy?
 
-One-step evaluations in three tracks: **Classic**, **Pro** and **Turbo**. Each track comes in a range of account sizes. Profit targets and maximum drawdown differ by track; daily loss is 3% for all three.
+One-step challenges in three tracks: **Classic**, **Pro** and **Turbo**. Each track comes in a range of account sizes. Profit targets and maximum drawdown differ by track; daily loss is 3% for all three.
 
-Current account sizes, prices and rules are on the [evaluation page](https://app.bungee.exchange/funded-perps#pricing), which is always the source of truth.
+Current account sizes, prices and rules are on the [challenge page](https://app.bungee.exchange/funded-perps#pricing), which is always the source of truth.
 
 ### What's the difference between Classic, Pro and Turbo?
 
-Each track sets a different balance between how much profit you need to make and how much room you have to lose. The exact profit target, daily loss limit and maximum drawdown for each track are shown on the [evaluation page](https://app.bungee.exchange/funded-perps#pricing) before you buy, and in your dashboard once you're trading.
+Each track sets a different balance between how much profit you need to make and how much room you have to lose. The exact profit target, daily loss limit and maximum drawdown for each track are shown on the [challenge page](https://app.bungee.exchange/funded-perps#pricing) before you buy, and in your dashboard once you're trading.
 
 ### Does unrealized profit count toward the profit target?
 
 Yes. **Realized and eligible unrealized profit** count toward the target; you don't have to close a trade for its eligible profit to count. Unrealized P&L on an open position affects live risk equity for daily loss and drawdown breach checks. It doesn't change the settled balance used to set the daily floor.
 
-### Do I need a take-profit order to pass the evaluation?
+### Do I need a take-profit order to pass the challenge?
 
 No. When your balance plus eligible unrealized P&L reaches the target without breaching the risk limits, the system records your pass and closes your positions automatically. Later price movements or closing fees don't undo a pass already recorded.
 
-### Can I request a payout during an evaluation?
+### Can I request a payout during a challenge?
 
-No. Profit made during an evaluation isn't withdrawable; it's there to show you can hit the target. Payouts start once you're on a funded account.
+No. Profit made during a challenge isn't withdrawable; it's there to show you can hit the target. Payouts start once you're on a funded account.
 
 ### What happens after I pass?
 
 You're promoted automatically. Once your balance plus eligible unrealized P&L reaches the target without breaching the risk limits, your pass is recorded. The system cancels pending orders and closes your positions automatically. After closure and account checks, a funded account of the same size opens for you.
 
-The funded account starts fresh: positions, profit and orders from the evaluation don't carry over. After completing KYC, you can start trading and requesting payouts on the profits you make there.
+The funded account starts fresh: positions, profit and orders from the challenge don't carry over. After completing KYC, you can start trading and requesting payouts on the profits you make there.
 
-Your evaluation fee isn't returned to you with your payouts.
+Your challenge fee isn't returned to you with your payouts.
 
 ---
 
@@ -221,7 +221,7 @@ When eligible funded-account profit is claimed, the account resets to its origin
 
 - Your open positions may be force-closed.
 - The account may be permanently disabled.
-- To keep trading, you buy a new evaluation.
+- To keep trading, you buy a new challenge.
 
 There's no automatic forgiveness, reset, grace period or soft breach. The dashboard may warn you as you approach a limit, but warnings don't change the limits.
 
@@ -280,7 +280,7 @@ _What you can and can’t do while trading._
 ### Which trading practices are prohibited?
 
 - **Bot activity, HFT and scalping:** automated trading decisions or order activity, systematic high-speed orders, or repeated rapid entries and exits to capture small price moves or execution advantages.
-- **Copy trading and coordinated trading:** automatically mirroring another trader's account, controlling several accounts centrally, synchronising trades to get around risk limits, or using services built to game prop-firm evaluations, unless expressly approved by Bungee.
+- **Copy trading and coordinated trading:** automatically mirroring another trader's account, controlling several accounts centrally, synchronising trades to get around risk limits, or using services built to game prop-firm challenges, unless expressly approved by Bungee.
 - **Cross-account hedging:** e.g. long BTC in one account and short in another, using correlated assets to create offsetting exposure, or coordinating opposite positions with another trader.
 - **Technical exploits:**
   - latency or stale-price exploitation
@@ -296,7 +296,7 @@ The full list, and how breaches are handled, is in the [Bungee Funded Perps rule
 
 ### Can I use trading bots or an API?
 
-No. Using software, scripts, automated trading systems or APIs to make trading decisions or automatically submit, modify or cancel orders is prohibited on evaluation and funded accounts. Ordinary stop-loss and take-profit orders you configure aren't, by themselves, bot activity.
+No. Using software, scripts, automated trading systems or APIs to make trading decisions or automatically submit, modify or cancel orders is prohibited on challenge and funded accounts. Ordinary stop-loss and take-profit orders you configure aren't, by themselves, bot activity.
 
 Bungee monitors automation and coordinated activity. Confirmed prohibited bot activity leads to denial of the applicable payout request and may lead to further enforcement under the rulebook.
 
@@ -342,7 +342,7 @@ You keep **80%** of the profits you make on your funded account; Bungee keeps 20
 
 ### Are the rules the same on a funded account?
 
-Yes. A funded account has the same 3% daily loss rule, track-specific maximum drawdown and prohibited practices as the evaluation you passed.
+Yes. A funded account has the same 3% daily loss rule, track-specific maximum drawdown and prohibited practices as the challenge you passed.
 
 The daily loss floor is calculated from settled balance at the UTC reset; the maximum drawdown floor uses the original starting balance. Both are enforced against live risk equity, including open-position P&L and pending funding. Reaching or falling below either floor is a hard breach.
 
@@ -350,7 +350,7 @@ Claiming eligible settled profit resets the funded account to its original balan
 
 ### Is there a profit target on a funded account?
 
-No. The profit target only applies to the evaluation. Once you're funded there's no target to hit and no time limit; you keep trading inside the risk limits and request payouts when you have withdrawable profit.
+No. The profit target only applies to the challenge. Once you're funded there's no target to hit and no time limit; you keep trading inside the risk limits and request payouts when you have withdrawable profit.
 
 ### How and when can I request a payout?
 
@@ -398,7 +398,7 @@ The maximum drawdown floor is $9,400, giving a $600 maximum-drawdown buffer. The
 
 With a fresh $20,000 gross payout allowance, you can request $16,000 of the credited trader share. The remaining $4,000 trader share, representing $5,000 gross profit, stays withdrawable for a later cycle. Consuming the full allowance starts the 24-hour cooldown.
 
-The account stays funded, and you don't need a new evaluation. A claim doesn't clear an unresolved breach or investigation. A rejected external payout doesn't restore the requested balance or consumed allowance.
+The account stays funded, and you don't need a new challenge. A claim doesn't clear an unresolved breach or investigation. A rejected external payout doesn't restore the requested balance or consumed allowance.
 
 ### Can a payout be reviewed or denied?
 
@@ -514,13 +514,13 @@ Bungee may:
 
 ## 7. Orders, Billing & KYC
 
-_Paying for evaluations, refunds and identity verification._
+_Paying for challenges, refunds and identity verification._
 
 ### How do I sign in?
 
 With your Google account or a crypto wallet.
 
-### How do I pay for an evaluation?
+### How do I pay for a challenge?
 
 In **USDC on Base.** At checkout you'll see a deposit address with a QR code, the exact amount to send and a payment deadline. Your account opens as soon as the payment is confirmed.
 
@@ -533,7 +533,7 @@ In **USDC on Base.** At checkout you'll see a deposit address with a QR code, th
 
 ### Is the fee one-time, or is it a subscription?
 
-One-time. You pay once per evaluation, and that's it: there's no subscription, no monthly fee and no renewal. If you breach an account and want to trade again, you buy a new evaluation.
+One-time. You pay once per challenge, and that's it: there's no subscription, no monthly fee and no renewal. If you breach an account and want to trade again, you buy a new challenge.
 
 ### Can I have more than one account?
 
@@ -549,7 +549,7 @@ You can buy several accounts in a single purchase, provided the total stays with
 
 ### When do I need to complete KYC?
 
-After you pass your evaluation, before trading your funded account or receiving payouts. You don't need to verify your identity to buy an evaluation or to trade one.
+After you pass your challenge, before trading your funded account or receiving payouts. You don't need to verify your identity to buy a challenge or to trade one.
 
 ### What do I need for KYC?
 
@@ -558,7 +558,7 @@ Identity verification is handled by **Sumsub**, our verification provider. You'l
 - a **government-issued photo ID**, such as a passport, national ID card or driving licence
 - a **selfie check**, taken in the flow, to confirm the ID belongs to you
 
-The check usually takes a few minutes, and you can start it from your dashboard once you've passed your evaluation.
+The check usually takes a few minutes, and you can start it from your dashboard once you've passed your challenge.
 
 ### What happens if my KYC is rejected?
 
@@ -597,7 +597,7 @@ Bungee isn't responsible for losses or missed trading opportunities caused solel
 
 ### Can the rules change?
 
-Yes. Bungee may update supported markets, leverage, position limits, fees, funding, evaluation availability, operational requirements and risk controls. Material changes should be communicated through the platform or the applicable terms. Market-risk changes can take effect immediately when needed to protect traders, Bungee, venues or liquidity providers.
+Yes. Bungee may update supported markets, leverage, position limits, fees, funding, challenge availability, operational requirements and risk controls. Material changes should be communicated through the platform or the applicable terms. Market-risk changes can take effect immediately when needed to protect traders, Bungee, venues or liquidity providers.
 
 ---
 
