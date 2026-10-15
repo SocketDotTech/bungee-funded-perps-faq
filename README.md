@@ -1,6 +1,6 @@
 # Bungee Funded Perps — FAQ
 
-Answers to common questions about Bungee Funded Perps: evaluations, funded accounts, risk limits, payouts, and prohibited trading.
+Answers to common questions about Bungee Funded Perps: challenges, funded accounts, risk limits, payouts, and prohibited trading.
 
 [Read the FAQ](./FAQ.md)
 
