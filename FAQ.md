@@ -361,19 +361,19 @@ There are two separate steps:
 - **Claim account profit:** the account must be active, reconciled and current on risk, with no breach, open positions, pending orders, holds or active protection. All eligible settled profit above the original balance is claimed, the profit split is applied, and the account resets.
 - **Request payment:** eligible amounts in your user-wide withdrawable balance can be requested within your remaining payout allowance. A request can use an existing balance without claiming new profit from an account.
 
-The default allowance is **$20,000 of gross profit per user per cycle**, before the split. Accepted requests consume allowance when created. Partial requests leave the rest available immediately. A **24-hour cooldown starts only when the full allowance is consumed**; the next request after the cooldown starts a new cycle.
+The default allowance is **$20,000 of gross profit per user per UTC calendar day**, before the split. Accepted requests consume allowance when created. Partial requests leave the rest available immediately. The allowance **renews at 00:00 UTC every day**, even if you used only part of it. There is no separate cooldown after a partial payout.
 
-You may continue claiming eligible account profits during the cooldown; they accumulate in your withdrawable balance. Multiple payout requests may be pending, but every accepted request consumes balance and allowance. A subsequent rejection is final and restores neither.
+You may continue claiming eligible account profits after the daily allowance is exhausted; they accumulate in your withdrawable balance. Multiple payout requests may be pending, but every accepted request consumes balance and allowance. A subsequent rejection is final and restores neither.
 
 Payouts remain subject to compliance and trading-rule review. Check your dashboard for your available balance, remaining allowance and any wait time.
 
 ### How much can I take out at once?
 
-Your payment is limited by your eligible withdrawable balance and the trader share of your remaining gross payout allowance. The default allowance is **$20,000 gross per user per cycle**, shared across funded accounts, before the profit split. At the standard 80% split, $20,000 gross corresponds to $16,000 for you.
+Your payment is limited by your eligible withdrawable balance and the trader share of your remaining gross payout allowance. The default allowance is **$20,000 gross per user per UTC calendar day**, shared across funded accounts, before the profit split. At the standard 80% split, $20,000 gross corresponds to $16,000 for you.
 
-For example, an accepted $5,000 gross request leaves $15,000 of gross allowance available immediately. The 24-hour cooldown starts when cumulative accepted requests reach the full allowance. It doesn't start separately for every partial payout.
+For example, an accepted $5,000 gross request leaves $15,000 of gross allowance available immediately. Requests accepted on the same UTC day share that allowance. It renews at 00:00 UTC; unused allowance does not carry forward, and earlier days do not reduce today's allowance.
 
-Profit above the allowance stays in your withdrawable balance for a later cycle. Your dashboard shows the current allowance and when you can request more.
+Profit above the allowance stays in your withdrawable balance for a later UTC day. Your dashboard shows the current allowance and when you can request more.
 
 ### What's the minimum payout?
 
@@ -396,7 +396,7 @@ For example, a $10,000 Classic funded account with a $35,000 settled balance has
 
 The maximum drawdown floor is $9,400, giving a $600 maximum-drawdown buffer. The default 3% daily-loss limit also applies: its $9,700 floor leaves $300 before a daily-loss breach at $10,000 equity.
 
-With a fresh $20,000 gross payout allowance, you can request $16,000 of the credited trader share. The remaining $4,000 trader share, representing $5,000 gross profit, stays withdrawable for a later cycle. Consuming the full allowance starts the 24-hour cooldown.
+With a fresh $20,000 gross payout allowance, you can request $16,000 of the credited trader share. The remaining $4,000 trader share, representing $5,000 gross profit, stays withdrawable for a later UTC day. Consuming the full daily allowance means the remaining balance can be requested from 00:00 UTC the next day.
 
 The account stays funded, and you don't need a new challenge. A claim doesn't clear an unresolved breach or investigation. A rejected external payout doesn't restore the requested balance or consumed allowance.
 
