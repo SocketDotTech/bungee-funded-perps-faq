@@ -281,7 +281,7 @@ _What you can and can’t do while trading._
 
 - **Bot activity, HFT and scalping:** automated trading decisions or order activity, systematic high-speed orders, or repeated rapid entries and exits to capture small price moves or execution advantages.
 - **Copy trading and coordinated trading:** automatically mirroring another trader's account, controlling several accounts centrally, synchronising trades to get around risk limits, or using services built to game prop-firm challenges, unless expressly approved by Bungee.
-- **Cross-account hedging:** e.g. long BTC in one account and short in another, using correlated assets to create offsetting exposure, or coordinating opposite positions with another trader.
+- **Prohibited hedging:** offsetting positions across challenge or funded accounts, coordinating opposing positions with other traders, or arbitraging a Bungee account against an external account or using external exposure to exploit the program. Different identities, correlated symbols or staggered entries don't exempt an economic hedge. See "Can I hedge?" below.
 - **Technical exploits:**
   - latency or stale-price exploitation
   - exploiting feed errors or platform bugs
@@ -304,13 +304,25 @@ Bungee monitors automation and coordinated activity. Confirmed prohibited bot ac
 
 Yes. You can learn from public commentary, follow public trade ideas, use public research, and act on what you find independently. Automatically mirroring another trader or running coordinated accounts isn't allowed without Bungee's approval.
 
+Sharing signals, strategies, entry or exit timing, or trading infrastructure to coordinate prohibited hedging is also prohibited.
+
 ### Can I hedge?
 
-No, in either case:
+**Across accounts**, hedging is prohibited. This includes opposing positions in the same or sufficiently correlated markets across challenge accounts, funded accounts, or a combination of both, regardless of the names, email addresses, identities or beneficial owners used.
 
-**Across accounts**, hedging is prohibited: holding long BTC in one Bungee account and short BTC in another, using correlated markets to create offsetting exposure, or coordinating opposite positions with another trader.
+Bungee assesses the combined exposure, timing, entry prices, position sizes, market conditions and correlations. Different symbols, staggered entries or different sizes don't exempt positions that form an economic hedge.
 
-**Within one account**, positions are one-way. Each market holds a single position in a single direction, so you can't be long and short the same market at the same time. Trading in the opposite direction reduces or closes the position you already have.
+**With other traders**, you must not coordinate opposing positions to engineer guaranteed or near-guaranteed combined profit or exploit the challenge or payout structure. This applies even if you don't share an identity, device, network or financial interest. Coordination can be established from trading patterns without an express agreement.
+
+**On external platforms**, you must not arbitrage a Bungee account against another exchange, broker, prop firm or trading platform, including wallet-accessed accounts, or use external accounts to offset Bungee exposure in an arrangement that exploits challenge requirements, risk limits or payouts. This includes accounts controlled by someone coordinating with you.
+
+**Within one account**, opposing positions in the same market are permitted only where the platform supports them, the existing position already has substantial unrealized profit or loss, and Bungee determines that the new position is an independent trade rather than a way to capture gains while offsetting losses or exploit the program. Bungee decides whether the existing unrealized profit or loss is sufficient. This permission doesn't enable unsupported order types or position modes; hedging outside these conditions is prohibited.
+
+### What happens if I break the hedging rules?
+
+Bungee may review activity across associated accounts and traders. A confirmed violation is a breach and may lead to immediate termination of all associated Bungee accounts, payout denial, forfeiture of accrued rewards attributable to the prohibited arrangement, and permanent disqualification.
+
+For an isolated, inadvertent first violation, Bungee may issue a formal warning instead of termination. Repeated, deliberate or coordinated violations result in termination of associated accounts, forfeiture of affected accrued rewards and disqualification. The rulebook's general enforcement measures also apply.
 
 ### Can I trade during news events?
 
@@ -377,7 +389,7 @@ Profit above the allowance stays in your withdrawable balance for a later UTC da
 
 ### What's the minimum payout?
 
-There is no fixed minimum payout.
+The minimum payout is **$50 after Bungee's profit split**. At the standard 80% trader share, that corresponds to $62.50 in gross profit.
 
 ### How long does a payout take?
 
@@ -537,15 +549,18 @@ One-time. You pay once per challenge, and that's it: there's no subscription, no
 
 ### Can I have more than one account?
 
-Yes. You can hold several active accounts at once, as long as their combined account size stays within **$110,000**. For example:
+Yes. There are two separate allocation caps per trader, based on the combined nominal starting sizes of active accounts in each stage:
 
-- one $100,000 account plus one $10,000 account = $110,000
-- two $50,000 accounts plus one $10,000 account = $110,000
-- four $25,000 accounts plus one $10,000 account = $110,000
+| Account stage | Maximum combined active account size |
+|---|---:|
+| Challenges | **$300,000** |
+| Funded accounts | **$110,000** |
 
-The cap counts the size of your active accounts, not margin used or position size, and checkout shows how much of it you've selected. Closed accounts don't count toward it. Each account keeps its own risk limits and is evaluated separately.
+For example, you can hold three $100,000 challenges and, at the same time, one $100,000 funded account plus one $10,000 funded account. Each stage is counted independently; there isn't a single combined cap across both stages.
 
-You can buy several accounts in a single purchase, provided the total stays within the $110,000 cap.
+The caps count nominal starting account size, not current equity, margin used, position notional or per-trade exposure. Closed accounts don't count. Each account keeps its own risk limits and position restrictions.
+
+You can buy several challenges in a single purchase, provided your total active challenge allocation stays within $300,000. Funded allocation must separately stay within $110,000.
 
 ### When do I need to complete KYC?
 
