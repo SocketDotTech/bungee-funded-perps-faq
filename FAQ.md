@@ -524,7 +524,51 @@ Bungee may:
 
 ---
 
-## 7. Orders, Billing & KYC
+## 7. Take-Profit & Stop-Loss (TP/SL)
+
+_How TP/SL triggers, execution and partial fills work, and how they interact with account risk limits._
+
+### Why did the chart price pass my TP/SL without triggering it?
+
+**TP/SL triggers use mark price, which can differ from the prices shown on the chart.** A candle touching your trigger level doesn’t necessarily mean mark price reached it.
+
+For a **long**, SL triggers when mark price reaches or falls below your stop, and TP triggers when it reaches or rises above your target. For a **short**, the directions are reversed.
+
+For example, suppose your long position has an SL at **$100**. The chart shows a low of **$99.90**, but mark price only falls to **$100.10**. Your SL hasn’t triggered because mark price is still above $100. It triggers when **mark price reaches $100 or lower**.
+
+### Why did my TP/SL execute at a different price?
+
+**Your trigger price determines when the exit starts, not the exact price you receive.**
+
+Once triggered, the position closes against available order-book prices. Closing a long sells into bids; closing a short buys from asks. Larger positions may fill across several prices, especially during fast moves or when liquidity is thin.
+
+This means an SL can close at a worse price than expected. A TP can also produce less profit—or a loss—because the final result includes actual execution prices, trading fees and funding.
+
+### My TP/SL triggered. Why is part of my position still open?
+
+**Triggered doesn’t mean fully filled.** Available liquidity and execution price limits can prevent the whole exit from filling at once. The remaining exit quantity continues to be processed against subsequent eligible order-book updates.
+
+Also check your protection size: a TP/SL covering only part of your position will leave the rest open.
+
+If your TP and SL are linked as a pair, triggering one cancels the other, even if the exit hasn’t finished filling. Any remaining position continues to affect your account’s risk limits.
+
+### Why was my account breached for daily loss or maximum drawdown even though my stop-loss triggered?
+
+**A stop-loss doesn’t override daily loss or maximum drawdown rules.** Those limits are checked against live account equity, including open-position P&L, fees and funding.
+
+Your account can breach before the stop triggers, while it is filling, or after slippage and closing fees are applied. Losses on other positions can also push the account below its limit. Breach and liquidation actions take precedence over TP/SL protection.
+
+For example, if your daily loss floor is **$9,700** and equity is **$9,710** when the stop triggers, another **$15** in execution losses and fees takes equity to **$9,695**—a breach.
+
+Placing your stop exactly at the breach level won’t protect the account: **reaching the floor already counts as a breach.** Leave room for execution differences and costs.
+
+---
+
+Still think something went wrong? Contact support with your account ID, market, approximate time and any relevant order IDs or screenshots so we can review the trigger, fills and risk checks.
+
+---
+
+## 8. Orders, Billing & KYC
 
 _Paying for challenges, refunds and identity verification._
 
@@ -581,7 +625,7 @@ Funded trading and payouts stay on hold until your identity is verified. If your
 
 ---
 
-## 8. Account & Support
+## 9. Account & Support
 
 _Your agreement with Bungee, disputes and platform issues._
 
@@ -616,7 +660,7 @@ Yes. Bungee may update supported markets, leverage, position limits, fees, fundi
 
 ---
 
-## 9. Referrals
+## 10. Referrals
 
 _Info about the Bungee referral programme._
 
