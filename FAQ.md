@@ -269,7 +269,7 @@ No. A stop-loss isn't required, and you won't be breached for trading without on
 
 Both breach checks use live equity, so a position moving against you counts toward daily loss and drawdown before you close it. The daily floor is set from settled balance at reset; it doesn't move down with an open loss. A stop-loss can help manage risk, but execution prices aren't guaranteed and it doesn't guarantee that a breach will be avoided.
 
-You can attach a **stop-loss and a take-profit** to any position in the terminal. They resize with the position, so if you close part of it the remaining protection adjusts to what's left. Once one triggers it can't be cancelled or edited.
+You can attach a **stop-loss and a take-profit** to a position in the terminal. They resize with the position, so if you close part of it the remaining protection adjusts to what's left. Once a protection triggers, its activation can't be undone. A resting stop-limit or take-profit-limit exit can still be cancelled, but cancellation doesn't restore its paired protection or close the position.
 
 ---
 
@@ -490,16 +490,39 @@ Settled funding is included in the balance used at the UTC reset. Pending fundin
 
 ### Will my order fill at the price I see?
 
-Not always, and that's deliberate. Your orders fill against the **real order book**, at the prices and depth actually available in the market, so execution behaves the way it would with real money on the line:
+Not always. Market orders and the immediately executable part of a limit order use **Bungee's execution order book**, based on market data and Bungee's spread, depth and risk settings:
 
 - **Spread and slippage apply.** A large order works through the book and fills at several price levels, not one quoted price.
 - **Partial fills happen.** If a crossing order runs out of available depth, you keep what filled and the rest is cancelled. A limit order stopped by its price limit may keep a resting remainder, but exhausting available opposite-side depth during initial execution can cancel the remainder.
 - **Trading fees are charged** on what actually fills. Funding is charged separately, hourly on open positions.
 - **Orders can be rejected or resized** if they exceed available liquidity, a market's position limit, your account's risk limits or venue constraints.
 
-What isn't taken from the market is other traders' order flow: **each account gets its own copy of the book's depth**, so your fills never compete with another Bungee trader's, and nobody can eat the liquidity you were aiming at.
+**Resting limit orders use executed market trades.** A buy can fill when an eligible sell trade occurs at or below its limit; a sell can fill when an eligible buy trade occurs at or above its limit. Trades exactly at the limit count. Available traded quantity can produce partial fills; the simulation doesn't place a queue of other traders ahead of you. A chart or order-book price touching the limit alone doesn't guarantee a fill.
 
-You can also edit the price of a resting limit order. A stop-loss or take-profit that has already triggered can't be edited or cancelled.
+**Each account gets its own simulated liquidity**, so your fills don't compete with another Bungee trader's. Orders within your account share that account's available liquidity.
+
+You can edit the price of an ordinary resting limit order. A triggered protection can't be edited or rearmed. Its resting limit exit can be cancelled; to change its price, cancel the remainder and submit a new protection or close order.
+
+### What price triggers my stop-loss or take-profit?
+
+**Executed Hyperliquid trade prices received by Bungee trigger TP/SL, not the mark price.** For a long position, a stop-loss triggers at or below its trigger price and a take-profit at or above it. For a short position, the directions are reversed. A trade exactly at the trigger price counts, and a brief crossing can trigger protection even if the next trade moves back.
+
+For a paired TP/SL, the first eligible trade selects one leg and cancels its sibling. Triggering fixes the exit quantity; later position growth doesn't enlarge that exit. Execution is capped to the remaining position and can't reverse it. All remaining protections for that position close when it becomes flat.
+
+**Risk equity, daily-loss and maximum-drawdown breaches, evaluation passes and liquidations still use mark prices.** A trade-based stop-loss doesn't guarantee that it will execute before a mark-based breach or liquidation.
+
+### Is my TP/SL trigger price also my fill price?
+
+No. The trigger price activates the exit; it doesn't guarantee an execution price.
+
+- **Market TP/SL:** execution starts from the first eligible Bungee order-book snapshot after the trigger. Spread, available depth and slippage determine the fills. The triggering trade, the mark price and your final fill can all differ.
+- **Stop-limit or take-profit-limit:** the trigger activates a reduce-only limit order. It can fill only from later eligible trades at its limit or better; the triggering trade itself can't fill it. It may fill partially or remain open if the market moves past the limit. A stop-limit doesn't guarantee that the position will close.
+
+For example, a long's $100 stop-loss can trigger on a $99.90 trade while the mark is still $100.20. If the next eligible book's best bid is $99.80, its market exit may fill there instead of at $100.
+
+### Why can my TP/SL, chart and mark price show different prices?
+
+They serve different purposes. TP/SL uses individual executed trades, while the mark is used for risk checks. Chart candles summarize a time interval; Bungee widens their high and low when needed to include its own committed fills. A candle touching your trigger is not, by itself, proof that an eligible trade crossed it while your protection was active. Use order and trade history to check the actual trigger and fills.
 
 ### Can you add a market I want to trade?
 
