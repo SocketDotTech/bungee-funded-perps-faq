@@ -156,9 +156,11 @@ Reaching a daily loss or maximum drawdown limit is a **hard breach.** Prohibited
 
 **Risk equity** is balance plus the full unrealized P&L on open positions and the signed effect of pending funding. Pending funding charges reduce equity; once settled into balance, they aren't counted again.
 
-Your **daily loss floor is calculated from settled balance at 00:00 UTC**. Your **maximum drawdown floor is calculated from the original starting balance**. Both breach checks use live risk equity, so an open loss can breach your account before you close the trade.
+For Classic, Pro and Turbo, your **daily loss floor is calculated from settled balance at 00:00 UTC**. Your **maximum drawdown floor is calculated from the original starting balance**. Both breach checks use live risk equity, so an open loss can breach your account before you close the trade.
 
 ### What is the daily loss limit, and how is it calculated?
+
+One Shot Black has no daily loss limit. See **One Shot Accounts** for its trailing maximum drawdown.
 
 The daily loss allowance is **3% of your settled balance at the 00:00 UTC reset**, for Classic, Pro and Turbo accounts.
 
@@ -354,9 +356,9 @@ You keep **80%** of the profits you make on your funded account; Bungee keeps 20
 
 ### Are the rules the same on a funded account?
 
-Yes. A funded account has the same 3% daily loss rule, track-specific maximum drawdown and prohibited practices as the challenge you passed.
+Your funded account keeps the drawdown rules of the challenge you passed. The same prohibited trading practices apply. One Shot Black keeps its trailing maximum drawdown and has no daily loss limit.
 
-The daily loss floor is calculated from settled balance at the UTC reset; the maximum drawdown floor uses the original starting balance. Both are enforced against live risk equity, including open-position P&L and pending funding. Reaching or falling below either floor is a hard breach.
+For Classic, Pro and Turbo, the daily loss floor is calculated from settled balance at the UTC reset; the maximum drawdown floor uses the original starting balance. Both are enforced against live risk equity, including open-position P&L and pending funding. Reaching or falling below either floor is a hard breach.
 
 Claiming eligible settled profit resets the funded account to its original balance and default risk limits. The trader's share is credited to a separate user-wide withdrawable balance, as explained below.
 
@@ -618,10 +620,10 @@ One-time. You pay once per challenge, and that's it: there's no subscription, no
 
 Yes. There are two separate allocation caps per trader, based on the combined nominal starting sizes of active accounts in each stage:
 
-| Account stage | Maximum combined active account size |
-|---|---:|
-| Challenges | **$300,000** |
-| Funded accounts | **$110,000** |
+| Account stage   | Maximum combined active account size |
+| --------------- | -----------------------------------: |
+| Challenges      |                         **$300,000** |
+| Funded accounts |                         **$110,000** |
 
 For example, you can hold three $100,000 challenges and, at the same time, one $100,000 funded account plus one $10,000 funded account. Each stage is counted independently; there isn't a single combined cap across both stages.
 
@@ -700,3 +702,40 @@ Founding Trader benefits depend on badge membership and the code used at checkou
 From the referrals page in your dashboard, which shows your commission rate, total earnings and how much is available to pay out, along with every confirmed purchase made with your code.
 
 When you have commission available, request a payout and it's paid in **USDC on Base**. Referral payouts are processed manually and are separate from funded-account payouts, so the two don't affect each other.
+
+---
+
+## 11. One Shot Accounts
+
+### What is One Shot Black?
+
+One Shot Black is a one-step challenge. You start with a $10,000 evaluation account and a 10% profit target. The account has **no daily drawdown limit** and uses a **trailing maximum drawdown**. The same drawdown rule carries over when you become funded.
+
+### If there’s no daily drawdown limit, can I still breach during the day?
+
+Yes. Your live equity must stay above your trailing maximum drawdown floor at all times. On a new account, that floor is **$9,800**. If your equity touches $9,800, even briefly and even with a position still open, the account breaches.
+
+### What does “trailing maximum drawdown” mean?
+
+At **00:00 UTC** each day, we take your account equity, including open-position profit or loss and pending funding, and subtract **$200**. That sets your new floor. The $200 allowance stays fixed even as your equity changes.
+
+| At this point               | Your equity | Your breach floor |
+| --------------------------- | ----------: | ----------------: |
+| Account opens               |     $10,000 |            $9,800 |
+| First midnight UTC          |     $10,500 |           $10,300 |
+| Equity rises later that day |     $10,800 |           $10,300 |
+| Next midnight UTC           |     $10,450 |           $10,250 |
+
+The floor **trails the midnight equity snapshot**. It can rise or fall at midnight. An intraday high leaves it unchanged.
+
+### What happens to the trailing floor when I claim funded profits?
+
+When you claim eligible profit, your One Shot Black trading balance resets to **$10,000** and your floor resets to **$9,800**. The next midnight UTC update uses your equity at that time. The reset happens when you claim the profit, even if you request the external payment later.
+
+### How many One Shot Black accounts are available?
+
+The offer is limited to **3,000 paid evaluation accounts across all traders**. An issued place stays used if the account later fails or closes. Passing the evaluation and moving to funded uses the same place.
+
+### How much One Shot Black allocation can I have?
+
+Each trader has a separate **$30,000 One Shot Black allocation cap**. We count the current equity of your active One Shot Black evaluation and funded accounts together, plus any valid pending checkout reservations. For example, if your active accounts total $20,500, you have $9,500 available, so another $10,000 account would exceed the cap. If trading profits take you above $30,000, your existing accounts stay open. The cap applies when adding an account.
